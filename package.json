@@ -1,0 +1,19 @@
+{
+  "name": "email-management",
+  "version": "1.0.0",
+  "description": "Email Management Service - NodeJS REST API Back-end service",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Sandanidu De Silva",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
