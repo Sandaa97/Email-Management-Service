@@ -26,7 +26,7 @@ router.get('/', async(req,res) => {
 router.get("/:id", async (req, res) => {
     const email = await Email.findOne({ _id: req.params.id })
     .then(res.send())
-    .catch()
+    .catch(res.send({ id: req.params.id , status: "Failed"}))
 	res.send(email)
 })
 
@@ -53,7 +53,7 @@ router.delete("/:id", async (req, res) => {
         res.send()
 	} catch {
 		res.status(404)
-		res.send({ error: "Post doesn't exist!" })
+		res.send({ id: req.params.id , status: "Failed"})
 	}
 })
 
