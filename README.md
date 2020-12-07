@@ -3,7 +3,7 @@ API for Email Management Service
 
 Technology Stack 
 NodeJS
-MongoDb Atlas - Cloud based DB
+MongoDb
 Express
 
 Launch Project
