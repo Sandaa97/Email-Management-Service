@@ -10,7 +10,7 @@ const port = process.env.Port || 2010;
 app.use(express.json());
 
 const emailRouter = require('./routes/emails');
-app.use('/emails',emailRouter);
+app.use('/v1/emails',emailRouter);
 
 
 app.listen(port, ()=> {
