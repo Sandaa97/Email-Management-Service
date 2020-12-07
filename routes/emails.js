@@ -5,8 +5,6 @@ const Email = require('../models/emails');
 //const Resp = require('../response');
 
 
-
-
 /**
  * Get request to get all emails
  */
@@ -24,10 +22,12 @@ router.get('/', async(req,res) => {
  * Get Request for getting the id and the status of one email
  */
 router.get("/:id", async (req, res) => {
-    const email = await Email.findOne({ _id: req.params.id })
-    .then(res.send({id: req.params.id , status: "Sent"}))
-    .catch(res.send({ id: req.params.id , status: "Failed"}))
-	//res.send(email)
+    try{const email = await Email.findOne({ _id: req.params.id })
+    res.send({id: req.params.id , status: "Sent"})
+    }catch{
+    res.send({ id: req.params.id , status: "Failed"})
+    //res.send(email)
+    }
 })
 
 /**
@@ -39,8 +39,10 @@ router.post('/', async (req, res) => {
         content: req.body.content,
         subject: req.body.subject
 	})
-	await email.save()
-    res.send({  status: "SENT"})
+    await email.save()
+    console.log(email)
+    const eID = email.id
+    res.send( {id:eID, status: "SENT"})
     }catch{
     res.send({  status: "FAILED"})
 }
