@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./DB/Connection');
 const app = express();
 const URI= "mongodb+srv://dbUser:dbUser@cluster0.1knjm.mongodb.net/EmailManagementServiceDB";
+const transporter = require('./send-email') ;
 
 
 connectDB();
@@ -17,4 +18,7 @@ app.listen(port, ()=> {
     console.log(`[Server ] The port is running on : ${port}`);
     console.log(`[Server ] Base URI = ${URI}`);   
 });
+
+transporter.sendMail;
+
 
